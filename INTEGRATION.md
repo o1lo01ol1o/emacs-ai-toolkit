@@ -14,7 +14,7 @@ Edit `nix/flake.nix` to add the toolkit:
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     claude-code-flake.url = "path:./claude-code";
     # Add emacs-ai-toolkit
-    emacs-ai-toolkit.url = "github:YOUR-USERNAME/emacs-ai-toolkit";
+    emacs-ai-toolkit.url = "github:o1lo01ol1o/emacs-ai-toolkit";
   };
 
   outputs = { self, nixpkgs, claude-code-flake, emacs-ai-toolkit, ... }:

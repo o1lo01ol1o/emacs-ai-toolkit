@@ -7,7 +7,7 @@
     # obelisk.url = "...";
 
     # Add emacs-ai-toolkit
-    emacs-ai-toolkit.url = "github:YOUR-USERNAME/emacs-ai-toolkit";
+    emacs-ai-toolkit.url = "github:o1lo01ol1o/emacs-ai-toolkit";
   };
 
   outputs = { self, emacs-ai-toolkit, ... }@inputs:

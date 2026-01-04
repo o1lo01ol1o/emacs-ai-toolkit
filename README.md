@@ -21,7 +21,7 @@ Add to your project's `flake.nix`:
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    emacs-ai-toolkit.url = "github:YOUR-USERNAME/emacs-ai-toolkit";
+    emacs-ai-toolkit.url = "github:o1lo01ol1o/emacs-ai-toolkit";
   };
 
   outputs = { self, nixpkgs, emacs-ai-toolkit, ... }:
@@ -39,13 +39,13 @@ Add to your project's `flake.nix`:
 
 ```bash
 # Enter development shell with all tools
-nix develop github:YOUR-USERNAME/emacs-ai-toolkit
+nix develop github:o1lo01ol1o/emacs-ai-toolkit
 
 # Or just Emacs
-nix develop github:YOUR-USERNAME/emacs-ai-toolkit#emacs
+nix develop github:o1lo01ol1o/emacs-ai-toolkit#emacs
 
 # Or just AI tools (Codex + Claude)
-nix develop github:YOUR-USERNAME/emacs-ai-toolkit#ai-tools
+nix develop github:o1lo01ol1o/emacs-ai-toolkit#ai-tools
 ```
 
 ## Library Functions
@@ -261,10 +261,10 @@ Generate starter configurations:
 
 ```bash
 # For Obelisk Haskell projects
-nix flake init -t github:YOUR-USERNAME/emacs-ai-toolkit#obelisk-haskell
+nix flake init -t github:o1lo01ol1o/emacs-ai-toolkit#obelisk-haskell
 
 # For generic projects
-nix flake init -t github:YOUR-USERNAME/emacs-ai-toolkit#generic
+nix flake init -t github:o1lo01ol1o/emacs-ai-toolkit#generic
 ```
 
 ## Troubleshooting
@@ -298,7 +298,7 @@ Claude Code is currently Linux-only. On macOS, it will be excluded automatically
 To modify this toolkit:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/emacs-ai-toolkit
+git clone https://github.com/o1lo01ol1o/emacs-ai-toolkit
 cd emacs-ai-toolkit
 nix develop
 ```

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    emacs-ai-toolkit.url = "github:YOUR-USERNAME/emacs-ai-toolkit";
+    emacs-ai-toolkit.url = "github:o1lo01ol1o/emacs-ai-toolkit";
   };
 
   outputs = { self, nixpkgs, emacs-ai-toolkit, ... }:
