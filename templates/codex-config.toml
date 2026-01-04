@@ -1,0 +1,44 @@
+# Codex Configuration Template
+# Copy to your project as .codex/config.toml
+
+model = "claude-sonnet-4"
+model_provider = "anthropic"
+
+# MCP Server Configuration
+# Each MCP server can provide tools and context to AI assistants
+
+# Example: ghcid MCP server for Haskell projects
+# Provides type checking and compilation feedback
+[mcp_servers.ghcid]
+startup_timeout_sec = 60
+command = "nix"
+args = [
+  "develop",
+  "./nix#mcpGhcid",  # Adjust path to your flake output
+  "--command",
+  "mcp-ghcid"
+]
+
+# Example: filesystem MCP server
+# Provides file system operations
+# [mcp_servers.filesystem]
+# command = "npx"
+# args = ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/dir"]
+
+# Example: git MCP server
+# Provides git operations
+# [mcp_servers.git]
+# command = "npx"
+# args = ["-y", "@modelcontextprotocol/server-git"]
+
+# Example: brave-search MCP server (requires API key)
+# Provides web search capability
+# [mcp_servers.brave-search]
+# command = "npx"
+# args = ["-y", "@modelcontextprotocol/server-brave-search"]
+# env = { BRAVE_API_KEY = "your-api-key-here" }
+
+# Project Trust Configuration
+# Mark project directories as trusted
+[projects."/path/to/your/project"]
+trust_level = "trusted"

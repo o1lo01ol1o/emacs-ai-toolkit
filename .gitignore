@@ -1,0 +1,8 @@
+result
+result-*
+.direnv/
+.envrc
+*.swp
+*.swo
+*~
+.DS_Store
