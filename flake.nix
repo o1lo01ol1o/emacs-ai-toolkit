@@ -82,9 +82,27 @@
                 in if cc != null then [ cc ] else []
               else [];
 
+            # Doom Emacs wrapper script
+            doomWrapper = if includeEmacs then [
+              (pkgs.writeShellScriptBin "doom" ''
+                # Look for doom executable in common locations
+                if [ -x "$HOME/.config/emacs/bin/doom" ]; then
+                  exec "$HOME/.config/emacs/bin/doom" "$@"
+                elif [ -x "$HOME/.emacs.d/bin/doom" ]; then
+                  exec "$HOME/.emacs.d/bin/doom" "$@"
+                else
+                  echo "Error: Could not find doom executable" >&2
+                  echo "Expected locations:" >&2
+                  echo "  - $HOME/.config/emacs/bin/doom" >&2
+                  echo "  - $HOME/.emacs.d/bin/doom" >&2
+                  exit 1
+                fi
+              '')
+            ] else [];
+
             mcpPackages = builtins.attrValues mcpServers;
 
-            allPackages = emacs ++ codex ++ claudeCode ++ mcpPackages ++ extraPackages ++ [
+            allPackages = emacs ++ codex ++ claudeCode ++ doomWrapper ++ mcpPackages ++ extraPackages ++ [
               pkgs.git
               pkgs.git-extras
               pkgs.curl
