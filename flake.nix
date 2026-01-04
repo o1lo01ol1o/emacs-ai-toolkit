@@ -26,7 +26,14 @@
         # Create an Emacs package with AI development extensions
         mkEmacs = { pkgs }:
           let
-            emacsPackages = pkgs.emacsPackagesFor pkgs.emacs-pgtk;
+            # Handle different nixpkgs versions with different emacs package names
+            emacsBase =
+              if pkgs ? emacs-pgtk then pkgs.emacs-pgtk
+              else if pkgs ? emacs30-pgtk then pkgs.emacs30-pgtk
+              else if pkgs ? emacs29-pgtk then pkgs.emacs29-pgtk
+              else pkgs.emacs;  # fallback to regular emacs
+
+            emacsPackages = pkgs.emacsPackagesFor emacsBase;
             emacsWithPackages = emacsPackages.emacsWithPackages;
           in
             emacsWithPackages (epkgs: [
